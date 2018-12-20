@@ -1,0 +1,19 @@
+
+
+server:
+  port: 9999
+  context-path: /user
+spring:
+  application:
+    name: eureka-client-consumer
+  datasource:
+    url: jdbc:mysql://localhost/ecandy_user
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.ecandy.user
