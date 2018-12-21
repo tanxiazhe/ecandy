@@ -23,11 +23,3 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-
-mvnw*
-.mvn
-
-/target/
-/.classpath
-/.project
-/.settings/
