@@ -1,0 +1,54 @@
+security:
+  oauth2:
+    client:
+      client-id: service-sales-order
+      client-secret: service-sales-order
+      user-authorization-uri: http://127.0.0.1:9999/user/oauth/authorize
+      user-info-uri: http://localhost:9999/uaa/user
+      access-token-uri: http://127.0.0.1:9999/user/oauth/token
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:9999/user/oauth/token_key
+
+
+#sso
+server:
+  port: 9001
+  context-path: /sales-order
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/ecandy_order
+    username: root
+    password: 123456
+  application:
+    name: service-sales-order
+
+
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.ecandy.order
+
+eureka:
+  client: # ?????Eureka?????
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka
+#druid.driverClassName=com.mysql.jdbc.Driver
+#druid.url=jdbc:mysql://127.0.0.1:3306/ecandy_order?useUnicode=true&characterEncoding=UTF-8
+#druid.username=root
+#druid.password=123456
+#druid.initialSize=10
+#druid.minIdle=6
+#druid.maxActive=50
+#druid.maxWait=60000
+#druid.timeBetweenEvictionRunsMillis=60000
+#druid.minEvictableIdleTimeMillis=300000
+#druid.validationQuery=SELECT 'x'
+#druid.testWhileIdle=true
+#druid.testOnBorrow=false
+#druid.testOnReturn=false
+#druid.poolPreparedStatements=false
+#druid.maxPoolPreparedStatementPerConnectionSize=20
+#druid.filters=wall,stat

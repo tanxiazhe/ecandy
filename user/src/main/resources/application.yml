@@ -1,11 +1,14 @@
 
-
+security:
+  oauth2:
+    resource:
+      filter-order: 3
 server:
   port: 9999
   context-path: /user
 spring:
   application:
-    name: eureka-client-consumer
+    name: service-user
   datasource:
     url: jdbc:mysql://localhost/ecandy_user
     username: root
@@ -17,3 +20,7 @@ eureka:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   typeAliasesPackage: com.ecandy.user
+logging:
+  level:
+    org.springframework: DEBUG
+    org.springframework.security: DEBUG

@@ -19,14 +19,14 @@ public class SsoAuthenticationServerConfig extends AuthorizationServerConfigurer
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-            .withClient("client1")
-            .secret("client1")
-            .authorizedGrantTypes("authorization_code", "refresh_token")
+            .withClient("service-sales-order")
+            .secret("service-sales-order")
+            .authorizedGrantTypes("password","authorization_code", "refresh_token")
             .scopes("all")
             .and()
-            .withClient("client2")
-            .secret("client2")
-            .authorizedGrantTypes("authorization_code", "refresh_token")
+            .withClient("api-gateway")
+            .secret("api-gateway")
+            .authorizedGrantTypes("implicit")
             .scopes("all");
     }
 
@@ -39,7 +39,9 @@ public class SsoAuthenticationServerConfig extends AuthorizationServerConfigurer
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("isAuthenticated()");
+        security
+            .tokenKeyAccess("permitAll()")
+            .checkTokenAccess("isAuthenticated()");
     }
 
     @Bean
