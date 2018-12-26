@@ -1,4 +1,4 @@
-package com.ecandy.product.service;
+package com.ecandy.product.client;
 
 import java.util.List;
 
@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ecandy.product.model.Employee;
 
-@FeignClient(name = "employee-service")
+@FeignClient(name = "employee")
 public interface EmployeeClient {
 
-    @GetMapping("/department/{departmentId}")
-    List<Employee> findByDepartment(@PathVariable("departmentId") Long departmentId);
+    @GetMapping("/Employees/{id}")
+    List<Employee> findById(@PathVariable("id") Long id);
+
+    @GetMapping("/Employees/")
+    List<Employee> findAll();
 
 }

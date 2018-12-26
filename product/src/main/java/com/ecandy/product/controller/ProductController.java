@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecandy.product.client.EmployeeClient;
+import com.ecandy.product.model.Employee;
 import com.ecandy.product.model.Product;
 import com.ecandy.product.service.ProductService;
 
@@ -20,6 +22,9 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    EmployeeClient employeeClient;
 
     @PostMapping
     public int add(@RequestBody Product product) {
@@ -42,4 +47,11 @@ public class ProductController {
         return productService.getAll();
 
     }
+
+    @GetMapping("/employees")
+    public List<Employee> employeeList() {
+        return employeeClient.findAll();
+
+    }
+
 }
