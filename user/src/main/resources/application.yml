@@ -3,6 +3,10 @@ security:
   oauth2:
     resource:
       filter-order: 3
+      userInfoUri: http://localhost:9999/user/user
+      preferTokenInfo: false
+    sso:
+      login-path: http://localhost:9999/user/login
 server:
   port: 9999
   context-path: /user
