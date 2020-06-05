@@ -2,6 +2,7 @@ package com.ecandy.order;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -23,6 +24,6 @@ public class App {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(App.class).web(true).run(args);
+        new SpringApplicationBuilder(App.class).web(WebApplicationType.SERVLET).run(args);
     }
 }

@@ -3,9 +3,10 @@ package com.ecandy.user.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-public class EUser  {
+public class EUser  implements Serializable {
     private String id;
     private String name;
     private String password;
