@@ -36,7 +36,7 @@ public class EmployeeController {
         return repository.findById(id);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Employee> findAll() {
         LOGGER.info("Employee find");
         return repository.findAll();

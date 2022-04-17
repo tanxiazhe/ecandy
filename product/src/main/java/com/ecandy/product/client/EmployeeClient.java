@@ -14,7 +14,7 @@ public interface EmployeeClient {
     @GetMapping("/Employees/{id}")
     List<Employee> findById(@PathVariable("id") Long id);
 
-    @GetMapping("/Employees/")
+    @GetMapping("/Employees")
     List<Employee> findAll();
 
 }
